@@ -1,6 +1,6 @@
 
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 from decodeUI import Ui_TransformWin
 
 class Feature(Ui_TransformWin):
@@ -18,12 +18,8 @@ class Feature(Ui_TransformWin):
 
     def clickEncode(self):
         word = self.text.toPlainText()
-        ans = str(word.encode('unicode-escape'))[1:].split('\\\\')
-        string = ''
-        for s in ans[1:]:
-            string = string + '\\' + s
-        string = string[:-1]
-        self.code.setText(string)
+        ans = str(word.encode('unicode-escape'))[1:].replace('\\\\', '\\')
+        self.code.setText(ans[1:-1])
 
     def clickDecode(self):
         word = self.code.toPlainText()
