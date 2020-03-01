@@ -1,0 +1,2 @@
+# unicode_conversion_tool
+基于pyqt5的字符与unicode 转换工具
